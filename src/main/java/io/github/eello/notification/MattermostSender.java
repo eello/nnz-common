@@ -1,5 +1,8 @@
 package io.github.eello.notification;
 
+import com.google.gson.Gson;
+import io.github.eello.notification.MattermostMessageDTO.Attachment;
+import io.github.eello.notification.MattermostMessageDTO.Attachments;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
