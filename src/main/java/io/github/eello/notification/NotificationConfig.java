@@ -22,6 +22,7 @@ public class NotificationConfig {
     }
 
     @Bean
+    @ConditionalOnMissingBean
     public NotificationManager notificationManager(MattermostProperties mattermostProperties) {
         return new NotificationManager(mattermostSender(mattermostProperties));
     }
