@@ -18,7 +18,7 @@ public class LoggingAspect {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @Around("within(@org.springframework.stereotype.Controller *)")
+    @Around("within(@org.springframework.web.bind.annotation.RestController *)")
     public Object logging(ProceedingJoinPoint pjp) throws Throwable { // 2
         String params = getRequestParams(); // request 값 가져오기
 
