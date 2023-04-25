@@ -1,7 +1,7 @@
-package io.github.eello.naneozu.common.notification;
+package io.github.eello.nnz.common.notification;
 
-import io.github.eello.naneozu.common.exception.CustomException;
-import io.github.eello.naneozu.common.exception.ErrorCode;
+import io.github.eello.nnz.common.exception.CustomException;
+import io.github.eello.nnz.common.exception.ErrorCode;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

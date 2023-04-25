@@ -1,4 +1,4 @@
-package io.github.eello.naneozu.common.exception;
+package io.github.eello.nnz.common.exception;
 
 import org.springframework.http.HttpStatus;
 

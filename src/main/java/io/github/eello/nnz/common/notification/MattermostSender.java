@@ -1,4 +1,4 @@
-package io.github.eello.naneozu.common.notification;
+package io.github.eello.nnz.common.notification;
 
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Value;

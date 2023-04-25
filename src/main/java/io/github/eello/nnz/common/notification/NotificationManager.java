@@ -1,4 +1,4 @@
-package io.github.eello.naneozu.common.notification;
+package io.github.eello.nnz.common.notification;
 
 public class NotificationManager {
 

@@ -1,4 +1,4 @@
-package io.github.eello.naneozu.common.exception;
+package io.github.eello.nnz.common.exception;
 
 import org.springframework.http.HttpStatus;
 
@@ -6,7 +6,6 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 public enum ErrorCode {
 
-    USER_NOT_FOUND("U001", "사용자를 찾을 수 없습니다.", NOT_FOUND),
     ;
 
     private final String code;

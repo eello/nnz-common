@@ -1,8 +1,8 @@
-package io.github.eello.naneozu.common.controller;
+package io.github.eello.nnz.common.controller;
 
-import io.github.eello.naneozu.common.exception.CustomException;
-import io.github.eello.naneozu.common.exception.ErrorResponse;
-import io.github.eello.naneozu.common.notification.NotificationManager;
+import io.github.eello.nnz.common.exception.CustomException;
+import io.github.eello.nnz.common.exception.ErrorResponse;
+import io.github.eello.nnz.common.notification.NotificationManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
