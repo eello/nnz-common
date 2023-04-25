@@ -16,9 +16,10 @@ import java.util.stream.Collectors;
 @Aspect
 public class LoggingAspect {
 
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
+
     @Around("within(@org.springframework.stereotype.Controller *)")
     public Object logging(ProceedingJoinPoint pjp) throws Throwable { // 2
-        Logger log = LoggerFactory.getLogger(pjp.getTarget().getClass());
         String params = getRequestParams(); // request 값 가져오기
 
         long startAt = System.currentTimeMillis();
