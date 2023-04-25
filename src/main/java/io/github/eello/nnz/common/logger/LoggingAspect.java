@@ -1,6 +1,7 @@
 package io.github.eello.nnz.common.logger;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ public class LoggingAspect {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
+    @Around("within(@org.springframework.web.bind.annotation.RestController *)")
     public Object logging(ProceedingJoinPoint pjp) throws Throwable { // 2
 
         String params = getRequestParams(); // request 값 가져오기
