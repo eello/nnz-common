@@ -12,8 +12,8 @@ public class ErrorResponse {
         this.requestUrl = requestUrl;
     }
 
-    public static ErrorResponse of(ErrorCode errorCode, String requestUrl) {
-        return new ErrorResponse(errorCode.getCode(), errorCode.getMessage(), requestUrl);
+    public static ErrorResponse of(AbstractErrorCode abstractErrorCode, String requestUrl) {
+        return new ErrorResponse(abstractErrorCode.getCode(), abstractErrorCode.getMessage(), requestUrl);
     }
 
     public String getCode() {

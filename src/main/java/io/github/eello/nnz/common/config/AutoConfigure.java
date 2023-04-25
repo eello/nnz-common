@@ -1,6 +1,7 @@
 package io.github.eello.nnz.common.config;
 
 import io.github.eello.nnz.common.controller.ControllerAdvisor;
+import io.github.eello.nnz.common.logger.LoggingAspect;
 import io.github.eello.nnz.common.notification.MattermostProperties;
 import io.github.eello.nnz.common.notification.MattermostSender;
 import io.github.eello.nnz.common.notification.NotificationManager;
@@ -8,12 +9,14 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
+@EnableAspectJAutoProxy
 @EnableConfigurationProperties(MattermostProperties.class)
-public class NaneozooAutoConfigure {
+public class AutoConfigure {
 
     @Bean
     public RestTemplate restTemplate() {
@@ -36,5 +39,10 @@ public class NaneozooAutoConfigure {
     @ConditionalOnMissingBean(annotation = RestControllerAdvice.class)
     public ControllerAdvisor controllerAdvisor(MattermostProperties mattermostProperties) {
         return new ControllerAdvisor(notificationManager(mattermostProperties));
+    }
+
+    @Bean
+    public LoggingAspect loggingAspect() {
+        return new LoggingAspect();
     }
 }

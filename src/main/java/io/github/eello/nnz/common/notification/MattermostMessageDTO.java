@@ -1,7 +1,7 @@
 package io.github.eello.nnz.common.notification;
 
 import io.github.eello.nnz.common.exception.CustomException;
-import io.github.eello.nnz.common.exception.ErrorCode;
+import io.github.eello.nnz.common.exception.AbstractErrorCode;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -66,9 +66,9 @@ public class MattermostMessageDTO {
             StringBuilder sb = new StringBuilder(text);
 
             if (e instanceof CustomException) {
-                ErrorCode errorCode = ((CustomException) e).getErrorCode();
-                sb.append("`Code: ").append(errorCode.getCode()).append("`\n")
-                        .append("`Message: ").append(errorCode.getMessage()).append("`\n\n");
+                AbstractErrorCode abstractErrorCode = ((CustomException) e).getErrorCode();
+                sb.append("`Code: ").append(abstractErrorCode.getCode()).append("`\n")
+                        .append("`Message: ").append(abstractErrorCode.getMessage()).append("`\n\n");
             } else {
                 sb.append("**Error Message**").append("\n").append("\n").append("```").append(e.getMessage()).append("```")
                         .append("\n").append("\n");

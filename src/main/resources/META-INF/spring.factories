@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration= io.github.eello.nnz.common.config.NaneozooAutoConfigure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration= io.github.eello.nnz.common.config.AutoConfigure

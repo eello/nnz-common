@@ -4,20 +4,20 @@ import org.springframework.http.HttpStatus;
 
 public class CustomException extends RuntimeException {
 
-    private ErrorCode errorCode;
+    private AbstractErrorCode abstractErrorCode;
     private HttpStatus status;
 
-    public CustomException(ErrorCode errorCode) {
-        this.errorCode = errorCode;
+    public CustomException(AbstractErrorCode abstractErrorCode) {
+        this.abstractErrorCode = abstractErrorCode;
     }
 
-    public CustomException(ErrorCode errorCode, HttpStatus status) {
-        this.errorCode = errorCode;
+    public CustomException(AbstractErrorCode abstractErrorCode, HttpStatus status) {
+        this.abstractErrorCode = abstractErrorCode;
         this.status = status;
     }
 
-    public ErrorCode getErrorCode() {
-        return errorCode;
+    public AbstractErrorCode getErrorCode() {
+        return abstractErrorCode;
     }
 
     public HttpStatus getStatus() {
