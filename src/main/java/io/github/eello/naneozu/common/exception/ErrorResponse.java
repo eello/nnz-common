@@ -1,4 +1,4 @@
-package io.github.eello.exception;
+package io.github.eello.naneozu.common.exception;
 
 public class ErrorResponse {
 

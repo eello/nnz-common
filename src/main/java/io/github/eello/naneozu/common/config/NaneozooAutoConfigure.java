@@ -1,9 +1,9 @@
-package io.github.eello.config;
+package io.github.eello.naneozu.common.config;
 
-import io.github.eello.controller.ControllerAdvisor;
-import io.github.eello.notification.MattermostProperties;
-import io.github.eello.notification.MattermostSender;
-import io.github.eello.notification.NotificationManager;
+import io.github.eello.naneozu.common.controller.ControllerAdvisor;
+import io.github.eello.naneozu.common.notification.MattermostProperties;
+import io.github.eello.naneozu.common.notification.MattermostSender;
+import io.github.eello.naneozu.common.notification.NotificationManager;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

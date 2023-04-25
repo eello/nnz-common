@@ -1,8 +1,6 @@
-package io.github.eello.notification;
+package io.github.eello.naneozu.common.notification;
 
 import com.google.gson.Gson;
-import io.github.eello.notification.MattermostMessageDTO.Attachment;
-import io.github.eello.notification.MattermostMessageDTO.Attachments;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -29,7 +27,7 @@ public class MattermostSender {
             return;
 
         try {
-            Attachment attachment = Attachment.builder()
+            MattermostMessageDTO.Attachment attachment = MattermostMessageDTO.Attachment.builder()
                     .channel(mmProperties.getChannel())
                     .author_icon(mmProperties.getAuthorIcon())
                     .author_name(mmProperties.getAuthorName())
@@ -41,7 +39,7 @@ public class MattermostSender {
                     .build();
 
             attachment.addExceptionInfo(exception, uri, params);
-            Attachments attachments = new Attachments(attachment);
+            MattermostMessageDTO.Attachments attachments = new MattermostMessageDTO.Attachments(attachment);
             attachments.addProps(exception);
 
             String payload = new Gson().toJson(attachments);

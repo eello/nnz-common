@@ -1,4 +1,4 @@
-package io.github.eello.notification;
+package io.github.eello.naneozu.common.notification;
 
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
