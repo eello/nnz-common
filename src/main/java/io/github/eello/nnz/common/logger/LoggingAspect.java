@@ -42,10 +42,8 @@ public class LoggingAspect {
             return result;
         } finally {
             logger.info(getRequestUrl(joinPoint, clazz));
-
-            ObjectMapper om = new ObjectMapper();
-            logger.info("parameters" + om.writeValueAsString(params(joinPoint)));
-            logger.info("response" + om.writeValueAsString(result));
+            logger.info("parameters: {}", params(joinPoint));
+            logger.info("response: {}", result);
         }
     }
     private String getRequestUrl(ProceedingJoinPoint joinPoint, Class clazz) {
