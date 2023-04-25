@@ -1,6 +1,8 @@
 package io.github.eello.nnz.common.logger;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -10,6 +12,7 @@ import org.aspectj.lang.reflect.CodeSignature;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.annotation.Annotation;
@@ -18,6 +21,8 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
+
+import static org.apache.logging.log4j.message.MapMessage.MapFormat.JSON;
 
 @Aspect
 public class LoggingAspect {
@@ -38,9 +43,9 @@ public class LoggingAspect {
         } finally {
             logger.info(getRequestUrl(joinPoint, clazz));
 
-            Gson gson = new Gson();
-            logger.info("parameters" + gson.toJson(params(joinPoint)));
-            logger.info("response" + gson.toJson(result));
+            ObjectMapper om = new ObjectMapper();
+            logger.info("parameters" + om.writeValueAsString(params(joinPoint)));
+            logger.info("response" + om.writeValueAsString(result));
         }
     }
     private String getRequestUrl(ProceedingJoinPoint joinPoint, Class clazz) {
