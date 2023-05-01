@@ -1,1 +1,3 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration= io.github.eello.nnz.common.config.AutoConfigure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration= \
+  io.github.eello.nnz.common.config.AutoConfigure, \
+  io.github.eello.nnz.common.config.JpaAuditingAutoConfigure
