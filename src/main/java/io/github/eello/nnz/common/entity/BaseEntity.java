@@ -26,6 +26,8 @@ public class BaseEntity {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
+    protected boolean isDelete;
+
     public Long getCreatedBy() {
         return createdBy;
     }
@@ -40,5 +42,9 @@ public class BaseEntity {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    public boolean getIsDelete() {
+        return isDelete;
     }
 }

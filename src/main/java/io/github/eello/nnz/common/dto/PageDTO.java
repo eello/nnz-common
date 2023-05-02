@@ -37,27 +37,27 @@ public class PageDTO {
 //        return dto;
 //    }
 
-    public Boolean getFirst() {
+    public Boolean getIsFirst() {
         return isFirst;
     }
 
-    public void setFirst(Boolean first) {
+    public void setIsFirst(Boolean first) {
         isFirst = first;
     }
 
-    public Boolean getLast() {
+    public Boolean getIsLast() {
         return isLast;
     }
 
-    public void setLast(Boolean last) {
+    public void setIsLast(Boolean last) {
         isLast = last;
     }
 
-    public Boolean getEmpty() {
+    public Boolean getIsEmpty() {
         return isEmpty;
     }
 
-    public void setEmpty(Boolean empty) {
+    public void setIsEmpty(Boolean empty) {
         isEmpty = empty;
     }
 
