@@ -9,7 +9,7 @@ public class KafkaMessageUtils {
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     public static String serialize(KafkaMessage<?> message) throws JsonProcessingException {
-        return objectMapper.writeValueAsString(message);
+        return objectMapper.writer().writeValueAsString(message);
     }
 
     public static <T> KafkaMessage<T> deserialize(String message, Class<T> genericType) throws JsonProcessingException {
