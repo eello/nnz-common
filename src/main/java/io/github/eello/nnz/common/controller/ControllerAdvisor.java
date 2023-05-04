@@ -21,7 +21,7 @@ public class ControllerAdvisor {
     }
 
     @ExceptionHandler(CustomException.class)
-    public ResponseEntity<ErrorResponse> handleException(CustomException e, HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleCustomException(CustomException e, HttpServletRequest request) {
         String requestUrl = request.getRequestURI();
         notificationManager.sendNotification(e, requestUrl, getParams(request));
 
@@ -33,6 +33,16 @@ public class ControllerAdvisor {
         }
 
         return ResponseEntity.status(status).body(ErrorResponse.of(e.getErrorCode(), requestUrl));
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleException(Exception e, HttpServletRequest request) {
+        String requestUrl = request.getRequestURI();
+        notificationManager.sendNotification(e, requestUrl, getParams(request));
+
+        return ResponseEntity.internalServerError().body(
+                new ErrorResponse("INTERNAL_SERVER_ERROR", e.getMessage(), requestUrl)
+        );
     }
 
     private String getParams(HttpServletRequest request) {
