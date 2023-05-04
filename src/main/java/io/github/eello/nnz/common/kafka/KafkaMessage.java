@@ -30,4 +30,12 @@ public class KafkaMessage<T> {
         CREATE, UPDATE, DELETE,
         ;
     }
+
+    public KafkaMessageType getType() {
+        return type;
+    }
+
+    public T getBody() {
+        return body;
+    }
 }
