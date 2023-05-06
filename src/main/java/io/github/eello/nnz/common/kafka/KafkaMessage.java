@@ -5,6 +5,7 @@ public class KafkaMessage<T> {
     private KafkaMessageType type;
     private T body;
 
+    public KafkaMessage() {}
     public KafkaMessage(KafkaMessageType type) {
         this.type = type;
     }
