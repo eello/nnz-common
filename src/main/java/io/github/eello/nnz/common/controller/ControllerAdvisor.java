@@ -3,6 +3,8 @@ package io.github.eello.nnz.common.controller;
 import io.github.eello.nnz.common.exception.CustomException;
 import io.github.eello.nnz.common.exception.ErrorResponse;
 import io.github.eello.nnz.common.notification.NotificationManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,6 +16,8 @@ import java.util.Enumeration;
 @RestControllerAdvice
 public class ControllerAdvisor {
 
+    private final Logger log = LoggerFactory.getLogger(getClass());
+
     private final NotificationManager notificationManager;
 
     public ControllerAdvisor(NotificationManager notificationManager) {
@@ -22,6 +26,8 @@ public class ControllerAdvisor {
 
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<ErrorResponse> handleCustomException(CustomException e, HttpServletRequest request) {
+        log.warn(e.getErrorCode().getMessage());
+
         String requestUrl = request.getRequestURI();
         notificationManager.sendNotification(e, requestUrl, getParams(request));
 
@@ -37,6 +43,8 @@ public class ControllerAdvisor {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleException(Exception e, HttpServletRequest request) {
+        log.warn(e.getMessage());
+
         String requestUrl = request.getRequestURI();
         notificationManager.sendNotification(e, requestUrl, getParams(request));
 
