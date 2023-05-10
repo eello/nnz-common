@@ -40,6 +40,10 @@ public class DecodedToken {
         return exp;
     }
 
+    public Date getExpDate() {
+        return new Date(exp * 1000L);
+    }
+
     @Override
     public String toString() {
         return "DecodedToken{" +
@@ -47,7 +51,7 @@ public class DecodedToken {
                 ", email='" + email + '\'' +
                 ", authProvider='" + authProvider + '\'' +
                 ", role='" + role + '\'' +
-                ", exp=" + simpleDateFormat.format(new Date(exp * 1000L)) +
+                ", exp=" + simpleDateFormat.format(getExpDate()) +
                 '}';
     }
 }
