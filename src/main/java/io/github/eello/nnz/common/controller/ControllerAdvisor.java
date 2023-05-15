@@ -27,6 +27,7 @@ public class ControllerAdvisor {
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<ErrorResponse> handleCustomException(CustomException e, HttpServletRequest request) {
         log.warn(e.getErrorCode().getMessage());
+        e.printStackTrace();
 
         String requestUrl = request.getRequestURI();
         notificationManager.sendNotification(e, requestUrl, getParams(request));
@@ -44,6 +45,7 @@ public class ControllerAdvisor {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleException(Exception e, HttpServletRequest request) {
         log.warn(e.getMessage());
+        e.printStackTrace();
 
         String requestUrl = request.getRequestURI();
         notificationManager.sendNotification(e, requestUrl, getParams(request));

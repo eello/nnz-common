@@ -1,7 +1,6 @@
 package io.github.eello.nnz.common.jwt;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class DecodedToken {
@@ -11,13 +10,15 @@ public class DecodedToken {
     private Long id;
     private String email;
     private String authProvider;
+    private String screenName;
     private String role;
     private Long exp;
 
-    public DecodedToken(Long id, String email, String authProvider) {
+    public DecodedToken(Long id, String email, String authProvider, String screenName) {
         this.id = id;
         this.email = email;
         this.authProvider = authProvider;
+        this.screenName = screenName;
     }
 
     public Long getId() {
@@ -30,6 +31,10 @@ public class DecodedToken {
 
     public String getAuthProvider() {
         return authProvider;
+    }
+
+    public String getScreenName() {
+        return screenName;
     }
 
     public String getRole() {
@@ -50,6 +55,7 @@ public class DecodedToken {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", authProvider='" + authProvider + '\'' +
+                ", screenName='" + screenName + '\'' +
                 ", role='" + role + '\'' +
                 ", exp=" + simpleDateFormat.format(getExpDate()) +
                 '}';
